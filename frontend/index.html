@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Financial Bank Manager</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./src/app.css">
+    <link
+        href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAASqcAAI9KCQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAIgAAAAAAAAAiIAAAAAAAACIiAAAAAAAAIiIgAAABEREAAAAAAAAREQAAAAAAAAERAAAAAAAAABEAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABVqgAA//8AAFZqAAD8PwAAWBoAAPAPAABgBgAAwAMAAMADAABgBgAA8A8AAFgaAAD8PwAAVmoAAP//AABVqgAA"
+        rel="icon" type="image/x-icon" />
+</head>
+
+<body>
+
+    <header>
+        <h1>Financial Bank Manager</h1>
+        <div class="upload-container">
+            <form ref="uploadForm" action='http://localhost:3001/uploads' method='post' encType="multipart/form-data">
+                <label for="file" class="input-label">Upload File</label>
+                <input type="file" name="sampleFile" class="input-btn" id="file" />
+                <button type="submit" id="btnUpload" class="submit-upload-btn">Save</button>
+            </form>
+        </div>
+        <div class="dropForm-container" data-form-url="/uploads"></div>
+    </header>
+    <main>
+        <div class="date-file" data-date-url="/uploads"></div>
+        <div class="sections-container">
+            <div class="table-list" data-list-url="/uploads"></div>
+            <div class="table-categories" data-categories-url="/categories"></div>
+            <div class="table-resume" data-resume-url="/uploads"></div>
+        </div>
+    </main>
+
+    <script src="./src/app.js"></script>
+
+</body>
+
+</html>

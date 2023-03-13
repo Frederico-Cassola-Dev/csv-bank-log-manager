@@ -1,0 +1,460 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background: #dda15e;
+}
+
+header {
+    max-height: 175px;
+    height: 175px;
+    margin: 20px;
+    background: #606c38;
+    border-radius: 20px;
+}
+
+h1 {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.upload-container {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    text-align: center;
+}
+
+.input-label {
+    font-size: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 200ms ease-out;
+
+}
+
+.input-label:hover {
+    color: #fff;
+    transform: translate(50%);
+
+}
+
+.input-btn {
+    display: none;
+}
+
+.submit-upload-btn {
+    cursor: pointer;
+    font-size: 1.7rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    padding: 0px 5px;
+    background-color: #dda15e;
+    border: none;
+    border-radius: 5px;
+    transition: transform 200ms ease-out;
+}
+
+.submit-upload-btn:hover{
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.dropForm-container{
+text-align: center;
+margin: 0 auto;
+}
+
+.dropForm-label{
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.selectLists{
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: #dda15e;
+}
+
+.selectLists:hover{
+    color: #fff;
+}
+
+.selectLists-others{
+    color:black;
+}
+
+.submit-list-btn {
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    padding: 0px 5px;
+    background-color: #dda15e;
+    border: none;
+    border-radius: 5px;
+    transition: transform 200ms ease-out;
+}
+
+.submit-list-btn:hover{
+    color: #fff;
+    transform: scale(1.1);
+}
+
+
+/* ------------------Main----------------- */
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.date-file-title {
+    font-size: 1.5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 900;
+    color: #009578;
+    max-width: 100%;
+    margin: 0px auto 10px auto;
+    text-align: center;
+}
+
+.sections-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* --------------List Section------------ */
+
+.table-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 300px;
+    width: 500px;
+    max-height: 500px;
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+    border: 3px solid #606c38;
+    border-radius: 10px;
+    overflow-y: auto;
+}
+
+.table-list__title {
+    margin: 10px 0;
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Times New Roman', Times, serif;
+    color: #606c38;
+}
+
+.table-list__table {
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0.2);
+    border-bottom: 2px solid #009578;
+}
+
+.table-list__table thead tr {
+    background: #009578;
+    color: #ffffff;
+}
+
+.table-list__table th,
+.table-list__table td {
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 9px 0px;
+    font-weight: normal;
+}
+
+.table-list__table tbody tr:nth-of-type(even) {
+    background: whitesmoke;
+}
+
+/* --------------Categories Section------------ */
+.table-categories {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 300px;
+    max-width: 500px;
+    max-height: 500px;
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+    border: 3px solid #606c38;
+    border-radius: 10px;
+    overflow-y: auto;
+
+}
+
+.table-categories__title {
+    margin: 10px 0;
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Times New Roman', Times, serif;
+    color: #606c38;
+}
+
+/* -------------- Modal------------ */
+.modal-container-categories,
+.modal-container-list {
+    /* display: none; */
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transition: visibility 0.4s;
+}
+
+.modal-container-categories.active,
+.modal-container-list.active {
+    /* display: block; */
+    visibility: visible;
+}
+
+.overlay {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #333333d3;
+    transition: opacity 0.4s 0.2s ease-out;
+}
+
+.modal-container-categories.active .overlay,
+.modal-container-list.active .overlay {
+    opacity: 1;
+    transition: opacity 0.4s ease-out;
+}
+
+.modal {
+    opacity: 0;
+    width: 95%;
+    max-width: 600px;
+    min-width: 300px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 5px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% - 50px));
+    transition: opacity 0.4s ease-out,
+        transform 0.4s ease-out;
+}
+
+.modal-container-categories.active .modal,
+.modal-container-list.active .modal {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.4s 0.2s ease-out,
+        transform 0.4s 0.2s ease-out;
+}
+
+.close-modal {
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background: #ff365e;
+    color: #fff;
+}
+
+.modal-btn {
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 5px;
+    border: 2px solid #606c38;
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px 2px #606c38;
+    transition: transform 200ms ease-out;
+}
+
+.modal-btn:hover{
+    transform: scale(1.05);
+}
+
+.modal h1 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #606c38;
+}
+
+.modal h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #009578;
+}
+
+.modal p {
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.4;
+    margin-bottom: 5px;
+}
+
+/* -------------- Modal Table------------ */
+.modal table{
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0.2);
+    border-bottom: 2px solid #009578;
+}
+
+.modal thead tr{
+    background: #009578;
+    color: #ffffff;
+}
+
+.modal td, th{
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 2px 2px;
+    font-weight: normal;
+}
+
+/* -------------- Table------------ */
+.table-categories__table {
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0.2);
+    border-bottom: 2px solid #009578;
+}
+
+.table-categories__table thead tr {
+    background: #009578;
+    color: #ffffff;
+}
+
+.table-categories__table th,
+.table-categories__table td {
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 9px 9px;
+    font-weight: normal;
+}
+
+.table-categories__table tbody tr:nth-of-type(even) {
+    background: whitesmoke;
+}
+
+/* --------------Resume Section------------ */
+.table-resume {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 300px;
+    max-width: 500px;
+    height: 500px;
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+    border: 3px solid #606c38;
+    border-radius: 10px;
+    overflow-y: auto;
+}
+
+.table-resume-internal__title,
+.table-resume-external__title {
+    margin: 10px 0;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'Times New Roman', Times, serif;
+    color: #606c38;
+}
+
+.table-resume__body {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    min-width: 300px;
+    max-width: 500px;
+    width: 100%;
+    height: 100%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.table-resume__body-main-categories {
+    display: flex;
+    align-items: center;
+    min-width: 100%;
+    max-height: 100%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.total-credit-resume-internal,
+.total-debit-resume-internal,
+.savings-resume-internal,
+.total-credit-resume-external,
+.total-debit-resume-external,
+.savings-resume-external {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 100px;
+    height: 75px;
+    background-color: antiquewhite;
+    margin: 5px;
+    padding: 10px;
+    border: 3px solid #606c38;
+    border-radius: 10px;
+}
+
+.table-resume__body-sub-categories {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 100%;
+    max-height: 100%;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+
+.super-resume-external,
+.achats-resume-external,
+.extras-resume-external,
+.sante-resume-external,
+.abonnements-resume-external,
+.maison-resume-external {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 100px;
+    height: 50px;
+    background-color: antiquewhite;
+    margin: 5px;
+    padding: 10px;
+    border: 3px solid #606c38;
+    border-radius: 10px;
+}
